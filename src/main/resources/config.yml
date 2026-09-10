@@ -1,0 +1,32 @@
+# ============================================================
+# MagicAntiSpam Configuration
+# ============================================================
+
+# Minimum delay between two accepted chat messages.
+cooldown-seconds: 2.0
+
+# How long the previous message is remembered for repeat detection.
+repeat-window-seconds: 20.0
+
+# Similarity from 0.0 to 1.0.
+# 0.85 means messages that are about 85% alike are considered similar.
+similarity-threshold: 0.85
+
+# Very short messages can produce false positives.
+# Similarity checking is only used when at least one normalized message
+# reaches this length. Exact duplicates are still blocked at any length.
+minimum-similarity-length: 4
+
+# OPs bypass anti-spam.
+op-bypass: true
+
+messages:
+  cooldown: "&cPlease wait before sending another message."
+  repeat: "&cPlease do not repeat the same or similar message."
+  reloaded: "&aMagicAntiSpam configuration reloaded."
+
+sound:
+  enabled: true
+  name: "ENTITY_VILLAGER_NO"
+  volume: 1.0
+  pitch: 1.0
