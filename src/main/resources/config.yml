@@ -1,23 +1,23 @@
 # ============================================================
-# MagicAntiSpam Configuration
+# MagicSMP Anti-Spam
+# Paper 26.2
 # ============================================================
 
-# Minimum delay between two accepted chat messages.
+# Delay before a player can send another message.
 cooldown-seconds: 2.0
 
-# How long the previous message is remembered for repeat detection.
+# How long the plugin remembers the player's previous message.
 repeat-window-seconds: 20.0
 
-# Similarity from 0.0 to 1.0.
-# 0.85 means messages that are about 85% alike are considered similar.
+# 1.0 = messages must be identical
+# 0.85 = catches messages that are roughly 85% similar
 similarity-threshold: 0.85
 
-# Very short messages can produce false positives.
-# Similarity checking is only used when at least one normalized message
-# reaches this length. Exact duplicates are still blocked at any length.
+# Prevent tiny messages such as "a" and "b" being falsely
+# detected as similar.
 minimum-similarity-length: 4
 
-# OPs bypass anti-spam.
+# OP players bypass the anti-spam.
 op-bypass: true
 
 messages:
