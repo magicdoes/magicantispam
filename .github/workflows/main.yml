@@ -1,23 +1,37 @@
-name: MagicAntiSpam
-version: '1.0.0'
-main: com.magicsmp.antispam.MagicAntiSpam
-api-version: '1.21'
-author: magicodes
-description: Anti-spam protection for MagicSMP with action-bar warnings.
+name: Build MagicAntiSpam
 
-commands:
-  magicantispam:
-    description: Reload MagicAntiSpam
-    usage: /magicantispam reload
-    permission: magicantispam.reload
-    aliases:
-      - mas
+on:
+  push:
+    branches:
+      - "**"
 
-permissions:
-  magicantispam.bypass:
-    description: Bypasses the anti-spam system
-    default: op
+  pull_request:
 
-  magicantispam.reload:
-    description: Allows reloading MagicAntiSpam
-    default: op
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build MagicAntiSpam
+        run: gradle clean build
+
+      - name: Upload MagicAntiSpam JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: MagicAntiSpam-1.21.11
+          path: build/libs/*.jar
+          if-no-files-found: error
