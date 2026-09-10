@@ -1,21 +1,23 @@
 name: MagicAntiSpam
 version: '${version}'
 main: com.magicsmp.antispam.MagicAntiSpam
-api-version: '1.21'
+api-version: '26.2'
 author: magicodes
-description: Action-bar anti-spam protection for MagicSMP.
+description: Anti-spam protection for MagicSMP with action-bar warnings.
 
 commands:
   magicantispam:
     description: Reload MagicAntiSpam
     usage: /magicantispam reload
     permission: magicantispam.reload
-    aliases: [mas]
+    aliases:
+      - mas
 
 permissions:
   magicantispam.bypass:
-    description: Bypass all anti-spam checks
+    description: Bypass the anti-spam system
     default: op
+
   magicantispam.reload:
-    description: Reload the MagicAntiSpam configuration
+    description: Reload MagicAntiSpam
     default: op
